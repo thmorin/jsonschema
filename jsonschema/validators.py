@@ -120,7 +120,7 @@ def create(meta_schema, validators=(), version=None, default_types=None):  # noq
 
         def validate(self, *args, **kwargs):
             for error in self.iter_errors(*args, **kwargs):
-                raise error
+                yield error
 
         def is_type(self, instance, type):
             if type not in self._types:
